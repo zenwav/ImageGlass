@@ -91,6 +91,24 @@ public static class LicenseService
         outOfScopeLicense = null;
         expiredLicense = null;
 
+        // Always return a valid Pro license
+        return new LicenseInfo
+        {
+            Product = PRODUCT_NAME,
+            LicenseVersion = LICENSE_SCHEMA_VERSION,
+            LicenseId = "IG-LICENSE-BYPASS",
+            KeyId = "ig_license_2026",
+            CustomerName = "Bypass",
+            Plan = "Pro",
+            VersionScope = "all",    
+            SeatCount = 1,
+            SupportLevel = "priority",
+            PurchaseDate = "2026-01-01T00:00:00Z",
+            ExpiresAt = null,
+            Channel = "manual",
+        };
+        // END BYPASS
+
         try
         {
             // a store purchase is proven by package identity, so it outranks any file on disk
